@@ -9,3 +9,7 @@ def homepage():
 @app.route('/appointments/all')
 def show_all_appointments():
     return render_template('all-appointments.html')
+
+@app.route('/appointments/add')
+def add_appointment():
+    return render_template('AddAppointment.html')

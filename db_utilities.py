@@ -10,3 +10,6 @@ def save_appointment(appointment_data):
 
 def get_all_appointemnts():
     return appointments.find()
+
+def get_appointment(id):
+    return appointments.find_one({'id': id})

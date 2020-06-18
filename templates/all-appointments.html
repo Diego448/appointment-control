@@ -8,13 +8,22 @@
         <p>Todas las citas</p>
         <table>
             <thead>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Nombre del cliente</th>
-                <th>Estado</th>
+                <tr>
+                    <th>Nombre del cliente</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                </tr>
             </thead>
             <tbody>
-                <tr></tr>
+                {% for appointment in data %}
+                    <tr>
+                        <td>{{ appointment.name }}</td>
+                        <td>{{ appointment.date }}</td>
+                        <td>{{ appointment.time }}</td>
+                        <td>{{ appointment.status }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </body>

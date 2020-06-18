@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from db_utilities import *
 
 app = Flask(__name__)
 
@@ -8,8 +9,22 @@ def homepage():
 
 @app.route('/appointments/all')
 def show_all_appointments():
-    return render_template('all-appointments.html')
+    appointments = get_all_appointemnts()
+    return render_template('all-appointments.html', data=appointments)
 
-@app.route('/appointments/add')
+@app.route('/appointments/add', methods=['POST', 'GET'])
 def add_appointment():
+    if request.method == 'POST':
+        customer_name = request.form['name']
+        appointment_date = request.form['date']
+        appointment_time = request.form['time']
+        appointment_status = request.form['status']
+        appointment_data = {
+            'name': customer_name,
+            'date': appointment_date,
+            'time': appointment_time,
+            'status': appointment_status
+        }
+        save_appointment(appointment_data)
+        return "Cita guardada"
     return render_template('AddAppointment.html')

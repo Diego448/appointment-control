@@ -28,3 +28,22 @@ def add_appointment():
         save_appointment(appointment_data)
         return "Cita guardada"
     return render_template('AddAppointment.html')
+
+@app.route('/appointments/edit')
+def edit_appointment():
+    if request.method == 'POST':
+        customer_name = request.form['name']
+        appointment_date = request.form['date']
+        appointment_time = request.form['time']
+        appointment_status = request.form['status']
+        appointment_data = {
+            'name': customer_name,
+            'date': appointment_date,
+            'time': appointment_time,
+            'status': appointment_status
+        }
+        save_appointment(appointment_data)
+        return "Cita guardada"
+    
+    return render_template('AddAppointment.html')
+

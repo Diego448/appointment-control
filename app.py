@@ -45,6 +45,7 @@ def edit_appointment(id):
         save_appointment(appointment_data)
         return "Cita guardada"
     appointment = get_appointment(id)
+    print(appointment)
     return render_template('edit-appointment.html', appointment=appointment)
     
         

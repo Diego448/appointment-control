@@ -14,4 +14,4 @@ def get_all_appointments():
 
 def get_appointment(id):
     object_id = ObjectId(id)
-    return appointments.find_one({'id': object_id})
+    return appointments.find_one({'_id': object_id})

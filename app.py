@@ -46,4 +46,5 @@ def edit_appointment():
         return "Cita guardada"
     
     return render_template('AddAppointment.html')
-
+    
+        

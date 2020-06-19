@@ -9,7 +9,7 @@ def homepage():
 
 @app.route('/appointments/all')
 def show_all_appointments():
-    appointments = get_all_appointemnts()
+    appointments = get_all_appointments()
     return render_template('all-appointments.html', data=appointments)
 
 @app.route('/appointments/add', methods=['POST', 'GET'])
@@ -44,7 +44,7 @@ def edit_appointment(id):
         }
         save_appointment(appointment_data)
         return "Cita guardada"
-    
-    return render_template('AddAppointment.html')
+    appointment = get_appointment(id)
+    return render_template('edit-appointment.html', appointment=appointment)
     
         

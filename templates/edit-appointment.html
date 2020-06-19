@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Appointment</title>
+    </head>
+    <body>
+        <h1>Edit an Appointment</h1>
+            <form action ="" method="post">
+            <label for="name">Nombre: </label>
+            <input type="text" name="name" id="name" required value="{{ appointment.name }}">
+            <label for="date">Fecha: </label>
+            <input type="date" name="date" id="date">
+            <label for="time">Hora: </label>
+            <input type="time" name="time" id="time">
+            <label for="status">Estado: </label>
+            <select name="status" id="status">
+                <option value="scheduled">Agendado</option>
+                <option value="cancelled">Cancelado</option>
+            </select>
+            <button type="submit">Guardar</button>
+        </form>
+    </body>
+</html>

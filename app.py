@@ -29,8 +29,8 @@ def add_appointment():
         return "Cita guardada"
     return render_template('AddAppointment.html')
 
-@app.route('/appointments/edit')
-def edit_appointment():
+@app.route('/appointments/edit/<id>', methods=['POST', 'GET'])
+def edit_appointment(id):
     if request.method == 'POST':
         customer_name = request.form['name']
         appointment_date = request.form['date']

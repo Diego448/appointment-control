@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 client = MongoClient()
 db = client.appointment_control_dev
@@ -12,4 +13,5 @@ def get_all_appointemnts():
     return appointments.find()
 
 def get_appointment(id):
-    return appointments.find_one({'id': id})
+    object_id = ObjectId(id)
+    return appointments.find_one({'id': object_id})

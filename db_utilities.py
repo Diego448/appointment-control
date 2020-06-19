@@ -8,7 +8,7 @@ def save_appointment(appointment_data):
     appointment_id = appointments.insert_one(appointment_data).inserted_id
     return appointment_id
 
-def get_all_appointemnts():
+def get_all_appointments():
     return appointments.find()
 
 def get_appointment(id):

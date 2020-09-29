@@ -27,7 +27,7 @@ def add_appointment():
         }
         save_appointment(appointment_data)
         return "Cita guardada"
-    return render_template('AddAppointment.html')
+    return render_template('add-appointment.html')
 
 @app.route('/appointments/edit/<id>', methods=['POST', 'GET'])
 def edit_appointment(id):
